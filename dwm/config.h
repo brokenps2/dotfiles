@@ -74,9 +74,9 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "rofi", "-show", "run", "-theme", "solarized", "-font", "Terminus 14", NULL };
 static const char *termcmd[]  = { "st", NULL };
 
-static const char *mutecmd[] = { "pactl", "set-sink-mute", "0", "toggle", NULL };
-static const char *volupcmd[] = { "pactl", "set-sink-volume", "0", "+5%", NULL };
-static const char *voldowncmd[] = { "pactl", "set-sink-volume", "0", "-5%", NULL };
+static const char *mutecmd[] = { "pactl", "set-sink-mute", "1", "toggle", NULL };
+static const char *volupcmd[] = { "pactl", "set-sink-volume", "1", "+5%", NULL };
+static const char *voldowncmd[] = { "pactl", "set-sink-volume", "1", "-5%", NULL };
 
 static const char *brupcmd[] = { "light", "-A", "10", NULL };
 static const char *brdowncmd[] = { "light", "-U", "10", NULL };
