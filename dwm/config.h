@@ -83,6 +83,8 @@ static const char *brdowncmd[] = { "light", "-U", "10", NULL };
 
 static const char *rangercmd[] = { "st", "ranger", NULL };
 
+static const char *sleepcmd[] = { "systemctl", "suspend", NULL };
+
 static const Key keys[] = {
 
 	{ 0, XF86XK_AudioMute, spawn, {.v = mutecmd } },
@@ -117,6 +119,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY|ShiftMask,		XK_d,	   spawn,	   {.v = rangercmd } },
+	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   {.v = sleepcmd } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
