@@ -1,7 +1,5 @@
 #!/bin/sh
 
-vol=$(pactl get-sink-volume 0 | awk '$1=="Volume:" {print $5}')
-
 sid=$(iwgetid -r)
 
 adr=$(ip -json route get 8.8.8.8 | jq -r '.[].prefsrc')
@@ -20,5 +18,5 @@ STOUSED=$(echo $df_output | awk '{print $3}')
 STOTOT=$(echo $df_output | awk '{print $2}')
 STOPER=$(echo $df_output | awk '{print $5}')
 
-xsetroot -name "[󰀂 ${sid} ${adr}] [ ${CPU}] [ ${MEMUSED} / ${MEMTOT}] [ ${STOUSED} / ${STOTOT}] [ $(pactl get-sink-volume 1 | awk '$1=="Volume:" {print $5}')] [$(date)]"
+xsetroot -name "[󰀂 ${adr}] [ ${CPU}] [ ${MEMUSED} / ${MEMTOT}] [ ${STOUSED} / ${STOTOT}] [ $(pactl get-sink-volume 1 | awk '$1=="Volume:" {print $5}')] [$(date +"%a %b %d %Y %T")]"
 sleep 0.1
