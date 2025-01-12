@@ -13,9 +13,9 @@ static const int smartgaps          = 0;        /* 1 means no outer gap when the
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Terminus:size=12" };
-static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#111111";
+static const char *fonts[]          = { "Haxor:size=10:weight=bold" };
+static const char dmenufont[]       = "Haxor:size=10";
+static const char col_gray1[]       = "#090815";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
@@ -25,7 +25,7 @@ static const char col_borderdred[]  = "#bc0000";
 static const char col_bgblue[]      = "#000087";
 static const char col_bgdred[]      = "#471111";
 static const char col_fgtext[]      = "#BFC9F4";
-static const char col_nmtext[]	    = "#DFEBF6";
+static const char col_nmtext[]	    = "#BCC6CF";
 static const char col_cool4[]       = "#eeeeee";
 
 static const char *colors[][3]      = {
@@ -71,14 +71,17 @@ static const Layout layouts[] = {
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
+
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 
 static const char *mutecmd[] = { "pactl", "set-sink-mute", "1", "toggle", NULL };
 static const char *volupcmd[] = { "pactl", "set-sink-volume", "1", "+8%", NULL };
 static const char *voldowncmd[] = { "pactl", "set-sink-volume", "1", "-8%", NULL };
+
+static const char *gtmacmd[] = {"startgtma", NULL};
 
 static const char *brupcmd[] = { "light", "-A", "10", NULL };
 static const char *brdowncmd[] = { "light", "-U", "10", NULL };
@@ -122,6 +125,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
 	{ MODKEY|ShiftMask,		XK_d,	   spawn,	   {.v = rangercmd } },
 	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   {.v = sleepcmd } },
+	{ MODKEY|ShiftMask,		XK_x,	   spawn,	   {.v = gtmacmd } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
