@@ -6,9 +6,10 @@ synclient RightButtonAreaTop=0
 synclient VertScrollDelta=-100
 synclient HorizScrollDelta=-100
 
-feh --bg-tile Pictures/setup.png
+xrandr --setprovideroutputsource modesetting NVIDIA-0
+xrandr --auto
+xrandr --dpi 96
 
-#changed my mind i3 sucks 
-#exec i3
+feh --bg-tile ~/Pictures/setup.png
 
-exec dwm
+exec i3

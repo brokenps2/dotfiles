@@ -15,3 +15,5 @@ alias grep='grep --color=auto'
 PS1='[\u@\h \W]\$ '
 export PICO_SDK_PATH=/home/eli/pico/pico-sdk
 export PICO_EXTRAS_PATH=/home/eli/pico/pico-extras
+export OPENCV_LOG_LEVEL=OFF
+bind TAB:menu-complete
