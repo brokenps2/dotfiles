@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Arch Linux Windows XP
+Description=Arch Linux Windows XP
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/plymarchxp
+ScriptFile=/usr/share/plymouth/themes/plymarchxp/plymarchxp.script

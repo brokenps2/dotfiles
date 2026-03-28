@@ -1,4 +1,3 @@
-sudo nfan &
 dunst &
 while true 
 do

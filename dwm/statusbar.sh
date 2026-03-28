@@ -1,6 +1,8 @@
 #!/bin/sh
 
-sid=$(iwgetid -r)
+vol=$(pactl get-sink-volume $(pactl get-default-sink) | awk '$1=="Volume:" {print $5}')
+
+bat=$(upower -i $(upower -e | grep 'BAT') | grep -E "percentage" | tail --bytes +26)
 
 adr=$(ip -json route get 8.8.8.8 | jq -r '.[].prefsrc')
 
@@ -18,5 +20,5 @@ STOUSED=$(echo $df_output | awk '{print $3}')
 STOTOT=$(echo $df_output | awk '{print $2}')
 STOPER=$(echo $df_output | awk '{print $5}')
 
-xsetroot -name "[󰀂 ${adr}] [ ${CPU}] [ ${MEMUSED} / ${MEMTOT}] [ ${STOUSED} / ${STOTOT}] [ $(pactl get-sink-volume 1 | awk '$1=="Volume:" {print $5}')] [$(date +"%a %b %d %Y %T")]"
+xsetroot -name "[󰀂 ${adr}] [󰂂 ${bat}] [ ${MEMUSED} / ${MEMTOT}] [ ${STOUSED} / ${STOTOT}] [ $(pactl get-sink-volume $(pactl get-default-sink) | awk '$1=="Volume:" {print $5}')] [$(date "+%a %b %d %Y %r")]"
 sleep 0.1
