@@ -5,26 +5,25 @@
 /* appearance */
 static const unsigned int borderpx  = 2;        /* border pixel of windows*/
 static const unsigned int gappx	    = 1;
-static const unsigned int gappih    = 6;       /* horiz inner gap between windows */
-static const unsigned int gappiv    = 6;       /* vert inner gap between windows */
-static const unsigned int gappoh    = 6;       /* horiz outer gap between windows and screen edge */
-static const unsigned int gappov    = 6;       /* vert outer gap between windows and screen edge */
+static const unsigned int gappih    = 10;       /* horiz inner gap between windows */
+static const unsigned int gappiv    = 10;       /* vert inner gap between windows */
+static const unsigned int gappoh    = 10;       /* horiz outer gap between windows and screen edge */
+static const unsigned int gappov    = 10;       /* vert outer gap between windows and screen edge */
 static const int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Terminus:size=12" };
-static const char dmenufont[]       = "";
-static const char col_gray1[]       = "#091b02";
+static const char *fonts[]          = { "Haxor:size=10:weight=bold" };
+static const char dmenufont[]       = "Haxor:size=10";
+static const char col_gray1[]       = "#090815";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
-static const char col_borderblue[]  = "#019433";
+static const char col_borderblue[]  = "#003fbd";
 static const char col_borderdred[]  = "#bc0000";
 static const char col_bgblue[]      = "#000087";
 static const char col_bgdred[]      = "#471111";
-static const char col_bggreen[]		= "#006335";
 static const char col_fgtext[]      = "#BFC9F4";
 static const char col_nmtext[]	    = "#BCC6CF";
 static const char col_cool4[]       = "#eeeeee";
@@ -32,7 +31,7 @@ static const char col_cool4[]       = "#eeeeee";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_nmtext, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_nmtext, col_bggreen,  col_borderblue  },
+	[SchemeSel]  = { col_nmtext, col_bgblue,  col_borderblue  },
 };
 
 /* tagging */
@@ -75,15 +74,19 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "rofi", "-show", "run", NULL };
+static const char *dmenucmd[] = { "dmenu_run", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 
-static const char *mutecmd[] = { "pactl", "set-sink-mute", "@DEFAULT_SINK@", "toggle", NULL };
-static const char *volupcmd[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "+5%", NULL };
-static const char *voldowncmd[] = { "pactl", "set-sink-volume", "@DEFAULT_SINK@", "-5%", NULL };
+static const char *mutecmd[] = { "pactl", "set-sink-mute", "1", "toggle", NULL };
+static const char *volupcmd[] = { "pactl", "set-sink-volume", "1", "+8%", NULL };
+static const char *voldowncmd[] = { "pactl", "set-sink-volume", "1", "-8%", NULL };
+
+static const char *gtmacmd[] = {"startgtma", NULL};
 
 static const char *brupcmd[] = { "light", "-A", "10", NULL };
 static const char *brdowncmd[] = { "light", "-U", "10", NULL };
+
+static const char *rangercmd[] = { "xfe", NULL };
 
 static const char *sleepcmd[] = { "systemctl", "suspend", NULL };
 
@@ -120,7 +123,9 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	{ MODKEY|ShiftMask,				XK_s,	   spawn,	       {.v = sleepcmd } },
+	{ MODKEY|ShiftMask,		XK_d,	   spawn,	   {.v = rangercmd } },
+	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   {.v = sleepcmd } },
+	{ MODKEY|ShiftMask,		XK_x,	   spawn,	   {.v = gtmacmd } },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

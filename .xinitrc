@@ -18,6 +18,9 @@ export MOZ_USE_XINPUT2=1
 #desktop only
 #sudo nfan &
 
-feh --bg-tile ~/Pictures/bluecircuit.png
+feh --bg-fill /home/eli/Pictures/nature/$(dir -1 /home/eli/Pictures/nature | shuf -n 1)
+
+dunst &
+picom &
 
 exec dbus-run-session -- dwm

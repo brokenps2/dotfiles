@@ -1,4 +1,4 @@
-<p> blue</p>
+<p>dwm alacritty rofi</p>
 
 <br>
 
