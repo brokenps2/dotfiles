@@ -15,16 +15,16 @@ static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 static const char *fonts[]          = { "Terminus:size=12" };
 static const char dmenufont[]       = "";
-static const char col_gray1[]       = "#091b02";
+static const char col_gray1[]       = "#0b0c1a";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_cyan[]        = "#005577";
-static const char col_borderblue[]  = "#019433";
+static const char col_borderblue[]  = "#1f2aa3";
 static const char col_borderdred[]  = "#bc0000";
-static const char col_bgblue[]      = "#000087";
+static const char col_bgblue[]      = "#1f2aa3";
 static const char col_bgdred[]      = "#471111";
-static const char col_bggreen[]		= "#006335";
+static const char col_bggreen[]		= "#005C33";
 static const char col_fgtext[]      = "#BFC9F4";
 static const char col_nmtext[]	    = "#BCC6CF";
 static const char col_cool4[]       = "#eeeeee";
@@ -32,7 +32,7 @@ static const char col_cool4[]       = "#eeeeee";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_nmtext, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_nmtext, col_bggreen,  col_borderblue  },
+	[SchemeSel]  = { col_nmtext, col_bgblue,  col_borderblue  },
 };
 
 /* tagging */

@@ -2,4 +2,4 @@
 
 <br>
 
-<img src="desktop.png">
+<img src="Pictures/desktop.png">
